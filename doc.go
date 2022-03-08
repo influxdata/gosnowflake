@@ -6,7 +6,7 @@ Clients can use the database/sql package directly. For example:
 	import (
 		"database/sql"
 
-		_ "github.com/snowflakedb/gosnowflake"
+		_ "github.com/influxdata/gosnowflake"
 	)
 
 	func main() {
@@ -460,7 +460,7 @@ any subsequent time.Time type to the DATE, TIME, TIMESTAMP_LTZ, TIMESTAMP_NTZ
 or BINARY data type. The above example could be rewritten as follows:
 
 	import (
-		sf "github.com/snowflakedb/gosnowflake"
+		sf "github.com/influxdata/gosnowflake"
 	)
 	dbt.mustExec("CREATE OR REPLACE TABLE tztest (id int, ntz, timestamp_ntz, ltz timestamp_ltz)")
 	// ...
@@ -503,7 +503,7 @@ The application may change the number of result set chunk downloader if required
 memory footprint by itself. Consider Custom JSON Decoder.
 
 	import (
-		sf "github.com/snowflakedb/gosnowflake"
+		sf "github.com/influxdata/gosnowflake"
 	)
 	sf.MaxChunkDownloadWorkers = 2
 
@@ -513,7 +513,7 @@ Custom JSON Decoder for Parsing Result Set (Experimental)
 The application may have the driver use a custom JSON decoder that incrementally parses the result set as follows.
 
 	import (
-		sf "github.com/snowflakedb/gosnowflake"
+		sf "github.com/influxdata/gosnowflake"
 	)
 	sf.CustomJSONDecoderEnabled = true
 	...
@@ -760,7 +760,7 @@ and before retrieving the results.
 		"fmt"
 		"log"
 		"os"
-		sf "github.com/snowflakedb/gosnowflake"
+		sf "github.com/influxdata/gosnowflake"
     )
 
 	...

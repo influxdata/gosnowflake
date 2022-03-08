@@ -8,7 +8,7 @@ import (
 	"os"
 	"strconv"
 
-	sf "github.com/snowflakedb/gosnowflake"
+	sf "github.com/influxdata/gosnowflake"
 )
 
 // getDSN constructs a DSN based on the test connection parameters

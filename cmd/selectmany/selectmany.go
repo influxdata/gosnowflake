@@ -16,7 +16,7 @@ import (
 
 	"runtime/debug"
 
-	sf "github.com/snowflakedb/gosnowflake"
+	sf "github.com/influxdata/gosnowflake"
 )
 
 var (
