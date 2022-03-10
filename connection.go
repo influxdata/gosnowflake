@@ -78,6 +78,14 @@ func (sc *snowflakeConn) exec(
 	var err error
 	counter := atomic.AddUint64(&sc.SequenceCounter, 1) // query sequence counter
 
+	// reject PUT/GET commands
+	if isFileTransfer(query) {
+		return nil, (&SnowflakeError{
+			Number:  ErrNotImplemented,
+			Message: "file transfer not allowed",
+		}).exceptionTelemetry(sc)
+	}
+
 	req := execRequest{
 		SQLText:      query,
 		AsyncExec:    noResult,
@@ -102,9 +110,6 @@ func (sc *snowflakeConn) exec(
 
 	// populate headers
 	headers := getHeaders()
-	if isFileTransfer(query) {
-		headers[httpHeaderAccept] = headerContentTypeApplicationJSON
-	}
 	if serviceName, ok := sc.cfg.Params[serviceName]; ok {
 		headers[httpHeaderServiceName] = *serviceName
 	}
@@ -134,14 +139,6 @@ func (sc *snowflakeConn) exec(
 			Message:  data.Message,
 			QueryID:  data.Data.QueryID,
 		}).exceptionTelemetry(sc)
-	}
-
-	// handle PUT/GET commands
-	if isFileTransfer(query) {
-		data, err = sc.processFileTransfer(ctx, data, query, isInternal)
-		if err != nil {
-			return nil, err
-		}
 	}
 
 	logger.WithContext(ctx).Info("Exec/Query SUCCESS")
