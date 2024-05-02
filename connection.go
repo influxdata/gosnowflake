@@ -96,6 +96,14 @@ func (sc *snowflakeConn) exec(
 	var err error
 	counter := atomic.AddUint64(&sc.SequenceCounter, 1) // query sequence counter
 
+	// reject PUT/GET commands
+	if isFileTransfer(query) {
+		return nil, (&SnowflakeError{
+			Number:  ErrNotImplemented,
+			Message: "file transfer not allowed",
+		}).exceptionTelemetry(sc)
+	}
+
 	queryContext, err := buildQueryContext(sc.queryContextCache)
 	if err != nil {
 		logger.Errorf("error while building query context: %v", err)
@@ -128,9 +136,6 @@ func (sc *snowflakeConn) exec(
 
 	// populate headers
 	headers := getHeaders()
-	if isFileTransfer(query) {
-		headers[httpHeaderAccept] = headerContentTypeApplicationJSON
-	}
 	paramsMutex.Lock()
 	if serviceName, ok := sc.cfg.Params[serviceName]; ok {
 		headers[httpHeaderServiceName] = *serviceName
@@ -166,14 +171,6 @@ func (sc *snowflakeConn) exec(
 			logger.Errorf("error while decoding query context: ", err)
 		} else {
 			sc.queryContextCache.add(sc, queryContext.Entries...)
-		}
-	}
-
-	// handle PUT/GET commands
-	if isFileTransfer(query) {
-		data, err = sc.processFileTransfer(ctx, data, query, isInternal)
-		if err != nil {
-			return nil, err
 		}
 	}
 
