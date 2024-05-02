@@ -1,4 +1,4 @@
-module github.com/snowflakedb/gosnowflake
+module github.com/influxdata/gosnowflake
 
 go 1.19
 

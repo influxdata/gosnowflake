@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	sf "github.com/snowflakedb/gosnowflake"
+	sf "github.com/influxdata/gosnowflake"
 )
 
 type sampleRecord struct {

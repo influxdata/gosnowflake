@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	sf "github.com/snowflakedb/gosnowflake"
+	sf "github.com/influxdata/gosnowflake"
 )
 
 func main() {

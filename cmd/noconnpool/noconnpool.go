@@ -11,7 +11,7 @@ import (
 	"log"
 	"sync"
 
-	sf "github.com/snowflakedb/gosnowflake"
+	sf "github.com/influxdata/gosnowflake"
 )
 
 func main() {
