@@ -5,8 +5,6 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-	"github.com/snowflakedb/gosnowflake/v2/internal/query"
-	"github.com/snowflakedb/gosnowflake/v2/internal/types"
 	"io"
 	"math"
 	"math/big"
@@ -17,11 +15,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/influxdata/gosnowflake/v2/internal/query"
+	"github.com/influxdata/gosnowflake/v2/internal/types"
+
 	"github.com/apache/arrow-go/v18/arrow"
 	"github.com/apache/arrow-go/v18/arrow/array"
 	"github.com/apache/arrow-go/v18/arrow/decimal128"
 	"github.com/apache/arrow-go/v18/arrow/memory"
-
 )
 
 func stringIntToDecimal(src string) (decimal128.Num, bool) {

@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/apache/arrow-go/v18/arrow"
-	ia "github.com/snowflakedb/gosnowflake/v2/internal/arrow"
-	"github.com/snowflakedb/gosnowflake/v2/internal/query"
-	"github.com/snowflakedb/gosnowflake/v2/internal/types"
+	ia "github.com/influxdata/gosnowflake/v2/internal/arrow"
+	"github.com/influxdata/gosnowflake/v2/internal/query"
+	"github.com/influxdata/gosnowflake/v2/internal/types"
 )
 
 const (

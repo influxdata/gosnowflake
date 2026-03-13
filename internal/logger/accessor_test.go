@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/snowflakedb/gosnowflake/v2/internal/logger"
+	"github.com/influxdata/gosnowflake/v2/internal/logger"
 )
 
 // TestLoggerConfiguration verifies configuration methods work

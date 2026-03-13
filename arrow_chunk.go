@@ -4,8 +4,9 @@ import (
 	"bytes"
 	"context"
 	"encoding/base64"
-	"github.com/snowflakedb/gosnowflake/v2/internal/query"
 	"time"
+
+	"github.com/influxdata/gosnowflake/v2/internal/query"
 
 	"github.com/apache/arrow-go/v18/arrow"
 	"github.com/apache/arrow-go/v18/arrow/ipc"

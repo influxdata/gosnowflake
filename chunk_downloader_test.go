@@ -5,7 +5,7 @@ import (
 	"database/sql/driver"
 	"testing"
 
-	ia "github.com/snowflakedb/gosnowflake/v2/internal/arrow"
+	ia "github.com/influxdata/gosnowflake/v2/internal/arrow"
 )
 
 func TestChunkDownloaderDoesNotStartWhenArrowParsingCausesError(t *testing.T) {

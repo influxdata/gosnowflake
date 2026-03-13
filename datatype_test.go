@@ -3,8 +3,9 @@ package gosnowflake
 import (
 	"database/sql/driver"
 	"fmt"
-	"github.com/snowflakedb/gosnowflake/v2/internal/types"
 	"testing"
+
+	"github.com/influxdata/gosnowflake/v2/internal/types"
 )
 
 func TestDataTypeMode(t *testing.T) {

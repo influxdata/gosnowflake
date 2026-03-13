@@ -6,12 +6,13 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-	"github.com/snowflakedb/gosnowflake/v2/internal/query"
-	"github.com/snowflakedb/gosnowflake/v2/internal/types"
 	"math/big"
 	"reflect"
 	"strconv"
 	"strings"
+
+	"github.com/influxdata/gosnowflake/v2/internal/query"
+	"github.com/influxdata/gosnowflake/v2/internal/types"
 )
 
 const (

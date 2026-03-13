@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/apache/arrow-go/v18/arrow/memory"
-	ia "github.com/snowflakedb/gosnowflake/v2/internal/arrow"
+	ia "github.com/influxdata/gosnowflake/v2/internal/arrow"
 
 	"database/sql/driver"
 )

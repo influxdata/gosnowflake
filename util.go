@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/apache/arrow-go/v18/arrow/memory"
-	ia "github.com/snowflakedb/gosnowflake/v2/internal/arrow"
+	ia "github.com/influxdata/gosnowflake/v2/internal/arrow"
 )
 
 // ContextKey is a type for context keys used in gosnowflake. Using a custom type helps avoid collisions with other context keys.

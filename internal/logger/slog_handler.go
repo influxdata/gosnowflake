@@ -2,8 +2,9 @@ package logger
 
 import (
 	"context"
-	"github.com/snowflakedb/gosnowflake/v2/sflog"
 	"log/slog"
+
+	"github.com/influxdata/gosnowflake/v2/sflog"
 )
 
 // snowflakeHandler wraps slog.Handler and adds context field extraction

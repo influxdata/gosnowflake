@@ -11,8 +11,9 @@ import (
 	"reflect"
 	"testing"
 
-	ia "github.com/snowflakedb/gosnowflake/v2/internal/arrow"
 	"time"
+
+	ia "github.com/influxdata/gosnowflake/v2/internal/arrow"
 )
 
 func TestMultiStatementExecuteNoResultSet(t *testing.T) {

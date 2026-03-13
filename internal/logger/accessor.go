@@ -5,7 +5,7 @@ import (
 	"log"
 	"sync"
 
-	"github.com/snowflakedb/gosnowflake/v2/sflog"
+	"github.com/influxdata/gosnowflake/v2/sflog"
 )
 
 // LoggerAccessor allows internal packages to access the global logger

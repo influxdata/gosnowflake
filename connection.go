@@ -13,7 +13,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	ia "github.com/snowflakedb/gosnowflake/v2/internal/arrow"
+	ia "github.com/influxdata/gosnowflake/v2/internal/arrow"
 	"go.opentelemetry.io/otel/propagation"
 )
 

@@ -3,9 +3,10 @@ package logger
 import (
 	"context"
 	"errors"
-	"github.com/snowflakedb/gosnowflake/v2/sflog"
 	"io"
 	"log/slog"
+
+	"github.com/influxdata/gosnowflake/v2/sflog"
 )
 
 // levelFilteringLogger wraps any logger and filters log messages based on log level.

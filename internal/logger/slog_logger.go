@@ -3,7 +3,6 @@ package logger
 import (
 	"context"
 	"fmt"
-	"github.com/snowflakedb/gosnowflake/v2/sflog"
 	"io"
 	"log/slog"
 	"os"
@@ -12,6 +11,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/influxdata/gosnowflake/v2/sflog"
 )
 
 // formatSource formats caller information for logging

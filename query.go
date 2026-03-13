@@ -2,8 +2,9 @@ package gosnowflake
 
 import (
 	"encoding/json"
-	"github.com/snowflakedb/gosnowflake/v2/internal/query"
 	"time"
+
+	"github.com/influxdata/gosnowflake/v2/internal/query"
 )
 
 type resultFormat string

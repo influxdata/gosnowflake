@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/snowflakedb/gosnowflake/v2/internal/compilation"
+	"github.com/influxdata/gosnowflake/v2/internal/compilation"
 )
 
 const disableMinicoreEnv = "SF_DISABLE_MINICORE"

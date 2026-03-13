@@ -2,9 +2,10 @@ package main
 
 import (
 	"bytes"
-	sf "github.com/snowflakedb/gosnowflake/v2"
 	"log"
 	"strings"
+
+	sf "github.com/influxdata/gosnowflake/v2"
 )
 
 func main() {

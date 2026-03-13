@@ -8,14 +8,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/snowflakedb/gosnowflake/v2/internal/query"
-	"github.com/snowflakedb/gosnowflake/v2/internal/types"
 	"math/big"
 	"reflect"
 	"strconv"
 	"strings"
 	"time"
 	"unicode"
+
+	"github.com/influxdata/gosnowflake/v2/internal/query"
+	"github.com/influxdata/gosnowflake/v2/internal/types"
 )
 
 // ObjectType Empty marker of an object used in column type ScanType function

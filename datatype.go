@@ -5,7 +5,8 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-	"github.com/snowflakedb/gosnowflake/v2/internal/types"
+
+	"github.com/influxdata/gosnowflake/v2/internal/types"
 )
 
 var (

@@ -5,12 +5,13 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-	"github.com/snowflakedb/gosnowflake/v2/internal/query"
 	"io"
 	"net/http"
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/influxdata/gosnowflake/v2/internal/query"
 )
 
 type RowsExtended struct {

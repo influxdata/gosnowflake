@@ -3,9 +3,10 @@ package logger
 import (
 	"context"
 	"fmt"
-	"github.com/snowflakedb/gosnowflake/v2/sflog"
 	"io"
 	"log/slog"
+
+	"github.com/influxdata/gosnowflake/v2/sflog"
 )
 
 // secretMaskingLogger wraps any logger implementation and ensures
