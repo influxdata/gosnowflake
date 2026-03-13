@@ -100,6 +100,15 @@ func (sc *snowflakeConn) exec(
 
 	var err error
 	counter := atomic.AddUint64(&sc.SequenceCounter, 1) // query sequence counter
+
+	// reject PUT/GET commands
+	if isFileTransfer(query) {
+		return nil, (&SnowflakeError{
+			Number:  ErrNotImplemented,
+			Message: "file transfer not allowed",
+		}).exceptionTelemetry(sc)
+	}
+
 	_, _, sessionID := safeGetTokens(sc.rest)
 	ctx = context.WithValue(ctx, SFSessionIDKey, sessionID)
 	queryContext, err := buildQueryContext(sc.queryContextCache)
@@ -134,9 +143,6 @@ func (sc *snowflakeConn) exec(
 
 	// populate headers
 	headers := getHeaders()
-	if isFileTransfer(query) {
-		headers[httpHeaderAccept] = headerContentTypeApplicationJSON
-	}
 
 	// propagate traceID and spanID via traceparent header. this is a no-op if invalid IDs
 	propagator := propagation.TraceContext{}
@@ -177,25 +183,6 @@ func (sc *snowflakeConn) exec(
 			logger.WithContext(ctx).Errorf("error while decoding query context: %v", err)
 		} else {
 			sc.queryContextCache.add(sc, queryContext.Entries...)
-		}
-	}
-
-	// handle PUT/GET commands
-	fileTransferChan := make(chan error, 1)
-	if isFileTransfer(query) {
-		go func() {
-			data, err = sc.processFileTransfer(ctx, data, query, isInternal)
-			fileTransferChan <- err
-		}()
-
-		select {
-		case <-ctx.Done():
-			logger.WithContext(ctx).Debugf("File transfer has been cancelled")
-			return nil, ctx.Err()
-		case err := <-fileTransferChan:
-			if err != nil {
-				return nil, err
-			}
 		}
 	}
 
